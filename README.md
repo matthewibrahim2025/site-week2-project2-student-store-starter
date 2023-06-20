@@ -29,8 +29,7 @@ Check out our [deployed Student Store](https://codepath-student-store-demo.surge
 - [ ] Your choice! (Replace this bullet explaining what you implemented. Example: Users can leave ratings for products they have purchased.)
 
 
-![ezgif com-video-to-gif](https://github.com/matthewibrahim2025/site-week2-project2-student-store-starter/assets/105619742/94dd32d7-b275-451e-8215-e50b891a136f)
-
+https://www.loom.com/share/9cb30f93e35a4bf1a8fb44c665e62d23?sid=520d6df1-e8bc-4826-a447-d761fc8c8cd6
 
 ## *Week 3* Application Features
 
