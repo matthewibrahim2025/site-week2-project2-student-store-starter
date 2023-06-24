@@ -4,7 +4,6 @@ const app = express();
 const dataModel = require("../models/product.js");
 
 app.use(express.json());
-
 app.use(cors());
 
 app.get("/store", (req, res) => {
@@ -20,6 +19,17 @@ app.get("/store/:id", (req, res) => {
   } else {
     res.status(404).send(`Product with id ${id} does not exist`);
   }
+});
+
+app.post("/store", (req, res) => {
+  const shoppingCart = req.body;
+  const purchases = dataModel.addToPurchase(shoppingCart);
+  res.json(purchases);
+});
+
+app.get("/receipts", (req, res) => {
+  const purchases = dataModel.getReceipts();
+  res.json(purchases);
 });
 
 module.exports = app;
