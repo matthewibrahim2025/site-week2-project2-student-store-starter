@@ -88,7 +88,7 @@ function Buy({
 
   useEffect(() => {
     axios
-      .get("https://codepath-store-api.herokuapp.com/store")
+      .get("http://localhost:3001/store")
       .then((response) => {
         setproductList(response.data.products);
        })
@@ -97,6 +97,7 @@ function Buy({
       });
   }, []);
 
+  console.log(productList.products);
   if (activeButton != "All Categories") {
     filteredData = productList.filter((item) =>
       item.category.includes(activeButton.toLowerCase())

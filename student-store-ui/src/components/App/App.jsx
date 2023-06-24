@@ -26,20 +26,20 @@ export default function App() {
   // const [tempCart, setTempCart] = useState([]);
 
 
-  let subTot = 0;
+  // let subTot = 0;
 
 
   // console.log(shoppingCart)
 
 
-  {shoppingCart.map((product) => (
+  // {shoppingCart.map((product) => (
 
-    subTot += product.productCost
+    
 
     // setTotPrice(newTot)
     // console.log(product.productPrice)
 
-  ))}
+  // ))}
 
 
   // console.log(subTot)
@@ -54,7 +54,7 @@ export default function App() {
 
           <Navbar/>
           <Hero />
-          <Sidebar shoppingCart={shoppingCart} setShoppingCart={setShoppingCart} subTot={subTot} />
+          <Sidebar shoppingCart={shoppingCart} setShoppingCart={setShoppingCart}  />
           <SubNavbar searchText={searchText} setSearchText={setSearchText} activeButton={activeButton} setActiveButton={setActiveButton}/>
           {/* <Home searchText={searchText} setSearchText={setSearchText} activeButton={activeButton} setActiveButton={setActiveButton}/> */}
           <Routes>

@@ -1,6 +1,10 @@
 import * as React from "react";
 import "./Sidebar.css";
 import { useState } from "react";
+import axios from "axios";
+import shoppingCartPost from "./shoppingCartPost";
+import shoppingCartGet from "./shoppingCartGet";
+// import { set } from "../../../../student-store-express-api/routes/app";
 
 function ToogleButton({ isActive, handleClick }) {
   return (
@@ -33,7 +37,18 @@ function AddCartIcons() {
   );
 }
 
-function Cart({ shoppingCart, setShoppingCart, subTot}) {
+function Cart({ shoppingCart, setShoppingCart }) {
+
+  let subTot = 0;
+
+
+  {shoppingCart.map((product) => (
+
+    
+    subTot += (product.productCost )
+
+  ))}
+
   return (
     <div className="CartTable">
       <div className="header">
@@ -43,7 +58,6 @@ function Cart({ shoppingCart, setShoppingCart, subTot}) {
           <span class="center">Unit Price</span>
           <span class="center">Cost</span>
         </div>
-
 
         {shoppingCart.map((product) => (
           // <div className="product-row">
@@ -97,29 +111,56 @@ function CheckOut({
   setShoppingCart,
   totPrice,
   setTotPrice,
-  subTot,
- 
 }) {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
+  const [receipt, setReceipt] = useState([]);
   // const [tempCart, setTempCart] = useState([]);
 
   const [checkedOut, setCheckedOut] = useState(false);
 
-  const handleClick = () => {
+  let subTot = 0;
+
+
+  {receipt.map((product) => (
+
+    
+    subTot += (product.productCost )
+
+  ))}
+
+const handleCheckedValue = async (value) => {
+  setCheckedOut(value);
+}
+
+
+
+
+
+  const handleClick = async () => {
     if (email == "" || name == "") {
       alert("Please enter a valid email and name.");
       return;
     } else if (shoppingCart.length == 0) {
       alert("Please add items to your cart before checking out.");
+      // await handleCheckedValue(false);
       return;
     } else {
       // setTempCart([...shoppingCart]);
+      await shoppingCartPost(shoppingCart);
+      // console.log("receipt", setReceipt);
+      // await shoppingCartGet(setReceipt);
+      // console.log(receipt);
+      await shoppingCartGet(setReceipt)
       
-      // setShoppingCart([]);
-      setCheckedOut(true);
+      // console.log("ewcwc", receipt);
+
+      await setShoppingCart([]);
+      await handleCheckedValue(true);
+      // console.log("checkedOut", receipt);
     }
   };
+
   // console.log("testCart", tempCart);
 
   return (
@@ -139,8 +180,8 @@ function CheckOut({
         <Cart
           shoppingCart={shoppingCart}
           setShoppingCart={setShoppingCart}
-          subTot={subTot}
- 
+          
+          // receipt={receipt}
         />
       ) : (
         <div className="empty-cart"></div>
@@ -230,7 +271,7 @@ function CheckOut({
                   {email}:
                 </p>
                 <ul class="purchase">
-                  {shoppingCart.map((product) => (
+                  {receipt.map((product) => (
                     <li>
                       {product.itemCount} total {product.productName} purchased
                       at a cost of ${product.productPrice.toFixed(2)} for a
@@ -259,7 +300,7 @@ function CheckOut({
             </p>
           )}
         </div>
-        {console.log(shoppingCart)}
+        {/* {setCheckedOut(false)} */}
         {/* {checkedOut
           ? setShoppingCart([
               {
@@ -276,7 +317,7 @@ function CheckOut({
   );
 }
 
-export default function Sidebar({ shoppingCart, setShoppingCart, subTot  }) {
+export default function Sidebar({ shoppingCart, setShoppingCart }) {
   const [isActive, setIsActive] = useState(false);
 
   const handleClick = () => {
@@ -293,8 +334,6 @@ export default function Sidebar({ shoppingCart, setShoppingCart, subTot  }) {
             <CheckOut
               shoppingCart={shoppingCart}
               setShoppingCart={setShoppingCart}
-              subTot={subTot}
-
             />
           ) : (
             <AddCartIcons />
