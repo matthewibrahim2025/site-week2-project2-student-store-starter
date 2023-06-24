@@ -41,7 +41,7 @@ https://www.loom.com/share/9cb30f93e35a4bf1a8fb44c665e62d23?sid=520d6df1-e8bc-48
 - [x] The shopping cart displays a table of products, quantities, subtotal, tax, and total.
 - [x] Users can checkout, and receive a receipt confirming their purchase.
 
-<div style="position: relative; padding-bottom: 62.5%; height: 0;"><iframe src="https://www.loom.com/embed/534b509eb06845acb4a790ea101fc700?sid=f9130ef3-3ab0-4eb8-9fd3-25fa36147284" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+https://www.loom.com/share/534b509eb06845acb4a790ea101fc700?sid=3c7fc862-3cd4-425f-9b5a-c4e9f564847f
 
 ### Stretch Features
 
